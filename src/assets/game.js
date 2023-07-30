@@ -8,7 +8,7 @@ var backgroundImagePositionX=0;
 var moveBackgroundAnimationId=0;
 var jumpAnimationNumber=0;
 var jumpImageNumber=1;
-var robotMarginTop=490;
+var dogMarginTop=490;
 
 
 // Idle Animation
@@ -86,23 +86,23 @@ function moveBackground(){
 function jumpAnimation() {
 
 
-    dog.src="assets/images/dog/jump (" + runImageNumber + ").png";
+    dog.src="assets/images/dog/jump (" + jumpImageNumber + ").png";
     jumpImageNumber=jumpImageNumber+1;
 
 
 //    Increase height
-    if(jumpImageNumber <=4){
-        robotMarginTop=robotMarginTop-20;
-        dog.style.marginTop=robotMarginTop+"px";
+    if(jumpImageNumber <=5){
+        dogMarginTop=dogMarginTop-20;
+        dog.style.marginTop=dogMarginTop+"px";
     }
 
     //Reduce height
     if(jumpImageNumber >=6){
-        robotMarginTop=robotMarginTop+20;
-        dog.style.marginTop=robotMarginTop+"px";
+        dogMarginTop=dogMarginTop+20;
+        dog.style.marginTop=dogMarginTop+"px";
     }
 
-    if(jumpImageNumber===7){
+    if(jumpImageNumber===9){
         jumpImageNumber=1;
         clearInterval(jumpAnimationNumber);
         jumpAnimationNumber=0;
@@ -118,3 +118,6 @@ function jumpAnimationStart() {
     clearInterval(runAnimationNumber);
     jumpAnimationNumber=setInterval(jumpAnimation,100);
 }
+
+
+
