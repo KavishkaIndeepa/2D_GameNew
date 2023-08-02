@@ -7,11 +7,24 @@
     background-image: url("images/backgroundOne.png");
     height: 100vh;
     width: 100vw;
-
+    overflow-x: hidden;
+    position: absolute;
 }
 
 .dog{
     position: absolute;
     height: 200px;
     margin-top: 490px;
+}
+
+.trap{
+    width: 100px;
+    height: 100px;
+    /*background-color: black;*/
+    position: absolute;
+    margin-top: 620px;
+    background-image: url("images/trap.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+
 }

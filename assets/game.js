@@ -9,6 +9,8 @@ var moveBackgroundAnimationId=0;
 var jumpAnimationNumber=0;
 var jumpImageNumber=1;
 var dogMarginTop=490;
+var trap;
+trapMarginleft=500;
 
 
 // Idle Animation
@@ -119,5 +121,30 @@ function jumpAnimationStart() {
     jumpAnimationNumber=setInterval(jumpAnimation,100);
 }
 
+// add bariar
 
+
+
+function creatTraps() {
+
+    for (var i=0; i<=10; i++) {
+
+        trap = document.createElement("div");
+        trap.className = "trap";
+        document.getElementById("background").appendChild(trap);
+
+        trap.style.marginLeft = trapMarginleft + "px"
+
+        trapMarginleft= trapMarginleft+1000;
+
+        if(i<5){
+            trapMarginleft=trapMarginleft + 1000;
+        }
+
+        if(i>=5){
+            trapMarginleft=trapMarginleft + 700;
+        }
+
+    }
+}
 
