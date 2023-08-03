@@ -10,8 +10,10 @@ var jumpAnimationNumber=0;
 var jumpImageNumber=1;
 var dogMarginTop=490;
 var trap;
-trapMarginleft=500;
-
+var trapMarginleft=1700;
+var trapAnimationId = 0;
+var currentMarginLeft;
+var newMarginLeft;
 
 // Idle Animation
 
@@ -60,6 +62,9 @@ function keyCheck(event) {
         if(moveBackgroundAnimationId==0){
             moveBackgroundAnimationId=setInterval(moveBackground,100);
         }
+        if(trapAnimationId===0){
+            trapAnimationId=setInterval(trapAnimation, 100);
+        }
     }
 
     if(keyCode ===32){
@@ -69,6 +74,9 @@ function keyCheck(event) {
 
         if(moveBackgroundAnimationId===0){
             moveBackgroundAnimationId=setInterval(moveBackground,100);
+        }
+        if(trapAnimationId===0){
+            trapAnimationId=setInterval(trapAnimation, 100);
         }
     }
 }
@@ -121,30 +129,52 @@ function jumpAnimationStart() {
     jumpAnimationNumber=setInterval(jumpAnimation,100);
 }
 
-// add bariar
+// add barrier
 
 
 
 function creatTraps() {
 
-    for (var i=0; i<=10; i++) {
+    for (var i=0; i<=200; i++) {
 
         trap = document.createElement("div");
         trap.className = "trap";
         document.getElementById("background").appendChild(trap);
 
         trap.style.marginLeft = trapMarginleft + "px"
-
+        trap.id= "trap" + i;
         trapMarginleft= trapMarginleft+1000;
 
-        if(i<5){
-            trapMarginleft=trapMarginleft + 1000;
+        if(i<50){
+            trapMarginleft=trapMarginleft + 800;
         }
 
-        if(i>=5){
-            trapMarginleft=trapMarginleft + 700;
+        if(i>=50 && i<=100){
+            trapMarginleft=trapMarginleft + 600;
+        }
+
+        if(i>=100 && i<=150){
+            trapMarginleft=trapMarginleft + 400;
+        }
+
+        if(i>=150 && i<=200){
+            trapMarginleft=trapMarginleft + 200;
         }
 
     }
 }
+
+function trapAnimation() {
+    for (let i = 0; i < 10; i++) {
+        trap = document.getElementById("trap"+i);
+        currentMarginLeft=getComputedStyle(trap).marginLeft;
+        newMarginLeft = parseInt(currentMarginLeft)-25;
+        trap.style.marginLeft=newMarginLeft + "px";
+
+
+    }
+}
+
+
+
 
