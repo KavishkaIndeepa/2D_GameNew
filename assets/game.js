@@ -102,13 +102,13 @@ function jumpAnimation() {
 
 //    Increase height
     if(jumpImageNumber <=5){
-        dogMarginTop=dogMarginTop-20;
+        dogMarginTop=dogMarginTop-35;
         dog.style.marginTop=dogMarginTop+"px";
     }
 
     //Reduce height
     if(jumpImageNumber >=6){
-        dogMarginTop=dogMarginTop+20;
+        dogMarginTop=dogMarginTop+35;
         dog.style.marginTop=dogMarginTop+"px";
     }
 
@@ -168,13 +168,28 @@ function trapAnimation() {
     for (let i = 0; i < 10; i++) {
         trap = document.getElementById("trap"+i);
         currentMarginLeft=getComputedStyle(trap).marginLeft;
-        newMarginLeft = parseInt(currentMarginLeft)-25;
+        newMarginLeft = parseInt(currentMarginLeft)-35;
         trap.style.marginLeft=newMarginLeft + "px";
 
 
+        if (newMarginLeft>=-100 & newMarginLeft<=100){
+            if (dogMarginTop >200){
+                clearInterval(trapAnimationId);
+
+                clearInterval(runAnimationNumber);
+                runAnimationNumber=-1;
+
+                clearInterval(jumpAnimationNumber);
+                jumpAnimationNumber=-1;
+
+                clearInterval(moveBackgroundAnimationId);
+                moveBackgroundAnimationId=-1;
+            }
+        }
     }
 }
 
+// Death
 
 
 
