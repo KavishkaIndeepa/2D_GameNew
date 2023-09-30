@@ -1,4 +1,4 @@
-var dog=document.getElementById("dog");
+var boy=document.getElementById("boy");
 var background=document.getElementById("background");
 var idleImageNumber=1;
 var idleAnimationNumber=0;
@@ -8,9 +8,9 @@ var backgroundImagePositionX=0;
 var moveBackgroundAnimationId=0;
 var jumpAnimationNumber=0;
 var jumpImageNumber=1;
-var dogMarginTop=490;
+var boyMarginTop=472;
 var trap;
-var trapMarginleft=1700;
+var trapMarginLeft=1700;
 var trapAnimationId = 0;
 var currentMarginLeft;
 var newMarginLeft;
@@ -18,7 +18,7 @@ var newMarginLeft;
 // Idle Animation
 
 function idleAnimation() {
-    dog.src="assets/images/dog/Idle (" +idleImageNumber + ").png";
+    boy.src="assets/images/Boy/Idle (" +idleImageNumber + ").png";
 
     idleImageNumber=idleImageNumber+1;
 
@@ -35,7 +35,7 @@ function idleAnimationStart() {
 //Run Animation
 
 function runAnimation() {
-    dog.src="assets/images/dog/Run (" + runImageNumber + ").png";
+    boy.src="assets/images/Boy/Run (" + runImageNumber + ").png";
 
     runImageNumber=runImageNumber+1;
 
@@ -96,23 +96,23 @@ function moveBackground(){
 function jumpAnimation() {
 
 
-    dog.src="assets/images/dog/jump (" + jumpImageNumber + ").png";
+    boy.src="assets/images/Boy/jump (" + jumpImageNumber + ").png";
     jumpImageNumber=jumpImageNumber+1;
 
 
 //    Increase height
     if(jumpImageNumber <=5){
-        dogMarginTop=dogMarginTop-35;
-        dog.style.marginTop=dogMarginTop+"px";
+        boyMarginTop=boyMarginTop-20;
+        boy.style.marginTop=boyMarginTop+"px";
     }
 
     //Reduce height
-    if(jumpImageNumber >=6){
-        dogMarginTop=dogMarginTop+35;
-        dog.style.marginTop=dogMarginTop+"px";
+    if(jumpImageNumber >=10){
+        boyMarginTop=boyMarginTop+20;
+        boy.style.marginTop=boyMarginTop+"px";
     }
 
-    if(jumpImageNumber===9){
+    if(jumpImageNumber===13){
         jumpImageNumber=1;
         clearInterval(jumpAnimationNumber);
         jumpAnimationNumber=0;
@@ -141,31 +141,31 @@ function creatTraps() {
         trap.className = "trap";
         document.getElementById("background").appendChild(trap);
 
-        trap.style.marginLeft = trapMarginleft + "px"
+        trap.style.marginLeft = trapMarginLeft + "px"
         trap.id= "trap" + i;
-        trapMarginleft= trapMarginleft+1000;
+        trapMarginLeft= trapMarginLeft+1000;
 
         if(i<50){
-            trapMarginleft=trapMarginleft + 800;
+            trapMarginLeft=trapMarginLeft + 800;
         }
 
         if(i>=50 && i<=100){
-            trapMarginleft=trapMarginleft + 600;
+            trapMarginLeft=trapMarginLeft + 600;
         }
 
         if(i>=100 && i<=150){
-            trapMarginleft=trapMarginleft + 400;
+            trapMarginLeft=trapMarginLeft + 400;
         }
 
         if(i>=150 && i<=200){
-            trapMarginleft=trapMarginleft + 200;
+            trapMarginLeft=trapMarginLeft + 200;
         }
 
     }
 }
 
 function trapAnimation() {
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 150; i++) {
         trap = document.getElementById("trap"+i);
         currentMarginLeft=getComputedStyle(trap).marginLeft;
         newMarginLeft = parseInt(currentMarginLeft)-35;
@@ -173,7 +173,7 @@ function trapAnimation() {
 
 
         if (newMarginLeft>=-100 & newMarginLeft<=100){
-            if (dogMarginTop >200){
+            if (boyMarginTop >200){
                 clearInterval(trapAnimationId);
 
                 clearInterval(runAnimationNumber);
