@@ -8,7 +8,7 @@ var backgroundImagePositionX=0;
 var moveBackgroundAnimationId=0;
 var jumpAnimationNumber=0;
 var jumpImageNumber=1;
-var boyMarginTop=472;
+var boyMarginTop=460;
 var trap;
 var trapMarginLeft=1700;
 var trapAnimationId = 0;
@@ -102,13 +102,13 @@ function jumpAnimation() {
 
 //    Increase height
     if(jumpImageNumber <=5){
-        boyMarginTop=boyMarginTop-20;
+        boyMarginTop=boyMarginTop-35;
         boy.style.marginTop=boyMarginTop+"px";
     }
 
     //Reduce height
     if(jumpImageNumber >=10){
-        boyMarginTop=boyMarginTop+20;
+        boyMarginTop=boyMarginTop+35;
         boy.style.marginTop=boyMarginTop+"px";
     }
 
@@ -143,37 +143,37 @@ function creatTraps() {
 
         trap.style.marginLeft = trapMarginLeft + "px"
         trap.id= "trap" + i;
-        trapMarginLeft= trapMarginLeft+1000;
+        trapMarginLeft= trapMarginLeft+800;
 
         if(i<50){
-            trapMarginLeft=trapMarginLeft + 800;
+            trapMarginLeft=trapMarginLeft + 500;
         }
 
         if(i>=50 && i<=100){
-            trapMarginLeft=trapMarginLeft + 600;
+            trapMarginLeft=trapMarginLeft + 300;
         }
 
         if(i>=100 && i<=150){
-            trapMarginLeft=trapMarginLeft + 400;
+            trapMarginLeft=trapMarginLeft + 100;
         }
 
         if(i>=150 && i<=200){
-            trapMarginLeft=trapMarginLeft + 200;
+            trapMarginLeft=trapMarginLeft + 50;
         }
 
     }
 }
 
 function trapAnimation() {
-    for (let i = 0; i < 150; i++) {
+    for (let i = 0; i < 200; i++) {
         trap = document.getElementById("trap"+i);
         currentMarginLeft=getComputedStyle(trap).marginLeft;
         newMarginLeft = parseInt(currentMarginLeft)-35;
         trap.style.marginLeft=newMarginLeft + "px";
 
 
-        if (newMarginLeft>=-100 & newMarginLeft<=100){
-            if (boyMarginTop >200){
+        if (newMarginLeft>=-110 & newMarginLeft<=100){
+            if (boyMarginTop > 200){
                 clearInterval(trapAnimationId);
 
                 clearInterval(runAnimationNumber);

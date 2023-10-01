@@ -13,8 +13,8 @@
 
 .boy{
     position: absolute;
-    height: 200px;
-    margin-top: 472px;
+    height: 210px;
+    margin-top: 460px;
 }
 
 .trap{
@@ -22,8 +22,8 @@
     height: 100px;
     /*background-color: black;*/
     position: absolute;
-    margin-top: 580px;
-    background-image: url("images/A2V.gif");
+    margin-top: 555px;
+    background-image: url("images/Magic_Fireball_Spell.gif");
     background-size: contain;
     background-repeat: no-repeat;
 
