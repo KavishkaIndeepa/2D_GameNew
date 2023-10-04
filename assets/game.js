@@ -16,6 +16,7 @@ var currentMarginLeft;
 var newMarginLeft;
 deathImageNumber = 1;
 deadAnimationNumber = 0;
+var score=0;
 
 // Idle Animation
 
@@ -89,6 +90,9 @@ function moveBackground(){
     background.style.backgroundPositionX=backgroundImagePositionX+"px";
 
     backgroundImagePositionX=backgroundImagePositionX-60;
+
+    score = score + 1;
+    document.getElementById("score").innerHTML= score;
 }
 
 
@@ -175,7 +179,7 @@ function trapAnimation() {
 
 
         if (newMarginLeft>=-110 & newMarginLeft<=100){
-            if (boyMarginTop > 300){
+            if (boyMarginTop > 355){
                 clearInterval(trapAnimationId);
 
                 clearInterval(runAnimationNumber);
@@ -205,4 +209,8 @@ function boyDeathAnimation() {
 
     boy.src= "assets/images/Boy/Dead (" + deathImageNumber + ").png"
 }
+
+//Score
+
+
 
