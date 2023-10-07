@@ -205,12 +205,22 @@ function boyDeathAnimation() {
 
     if (deathImageNumber == 11){
         deathImageNumber=10;
+
+//ens page view & Score
+        document.getElementById("end").style.visibility= "visible";
+        document.getElementById("endScore").innerHTML= score;
     }
 
     boy.src= "assets/images/Boy/Dead (" + deathImageNumber + ").png"
 }
 
-//Score
+
+//Game reload
+
+function reload() {
+    location.reload();
+}
+
 
 
 

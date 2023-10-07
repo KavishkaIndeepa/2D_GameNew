@@ -37,3 +37,38 @@
     position: absolute;
     color: white;
 }
+
+.end{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background-image: linear-gradient(90deg, #8E0E00 0%,#1F1C18 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 90px;
+    font-weight: bold;
+    color: white;
+    font-family: "Rockwell";
+    visibility: hidden;
+}
+
+.Btn{
+    height: 35px;
+    width: 300px;
+    margin-top: 50px;
+    font-size: 25px;
+    font-weight: 1000;
+    background-color: aqua;
+    border: none;
+    border-radius: 20px
+}
+
+.Btn:hover{
+     height: 37px;
+    width: 305px;
+    background-color: #007dff;
+    cursor: pointer;
+    color: white;
+}
