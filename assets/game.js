@@ -18,6 +18,12 @@ deathImageNumber = 1;
 deadAnimationNumber = 0;
 var score=0;
 
+
+document.getElementById('play-button').addEventListener('click', function() {
+    document.querySelector('#home-page').style.display = 'hidden';
+    document.querySelector('.background').style.display = 'block';
+});
+
 // Idle Animation
 
 function idleAnimation() {
