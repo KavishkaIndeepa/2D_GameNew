@@ -18,11 +18,16 @@ deathImageNumber = 1;
 deadAnimationNumber = 0;
 var score=0;
 
+let sound_background= new Audio('assets/Sound/retro-background-219.wav');
+let sound_Jump= new Audio('assets/Sound/jump-223.wav');
+let sound_fail= new Audio('assets/Sound/fail-game.mp3');
 
-document.getElementById('play-button').addEventListener('click', function() {
-    document.querySelector('#home-page').style.display = 'hidden';
-    document.querySelector('.background').style.display = 'block';
-});
+// document.getElementById('play-button').addEventListener('click', function() {
+//     document.querySelector('#home-page').style.display = 'hidden';
+//     document.querySelector('.background').style.display = 'block';
+// });
+
+sound_background.play();
 
 // Idle Animation
 
@@ -44,6 +49,7 @@ function idleAnimationStart() {
 //Run Animation
 
 function runAnimation() {
+    sound_background.play();
     boy.src="assets/images/Boy/Run (" + runImageNumber + ").png";
 
     runImageNumber=runImageNumber+1;
@@ -107,6 +113,7 @@ function moveBackground(){
 
 function jumpAnimation() {
 
+    sound_Jump.play();
 
     boy.src="assets/images/Boy/jump (" + jumpImageNumber + ").png";
     jumpImageNumber=jumpImageNumber+1;
@@ -186,6 +193,9 @@ function trapAnimation() {
 
         if (newMarginLeft>=-110 & newMarginLeft<=100){
             if (boyMarginTop > 355){
+
+                sound_fail.play();
+
                 clearInterval(trapAnimationId);
 
                 clearInterval(runAnimationNumber);
