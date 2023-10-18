@@ -187,12 +187,12 @@ function trapAnimation() {
     for (let i = 0; i < 200; i++) {
         trap = document.getElementById("trap"+i);
         currentMarginLeft=getComputedStyle(trap).marginLeft;
-        newMarginLeft = parseInt(currentMarginLeft)-35;
+        newMarginLeft = parseInt(currentMarginLeft)-80;
         trap.style.marginLeft=newMarginLeft + "px";
 
 
         if (newMarginLeft>=-110 & newMarginLeft<=100){
-            if (boyMarginTop > 355){
+            if (boyMarginTop > 380){
 
                 sound_fail.play();
 
