@@ -17,9 +17,13 @@ var newMarginLeft;
 deathImageNumber = 1;
 deadAnimationNumber = 0;
 var score=0;
+var level = 1;
 
-let sound_background= new Audio('assets/Sound/retro-background-219.wav');
-let sound_Jump= new Audio('assets/Sound/jump-223.wav');
+
+
+let sound_background= new Audio('assets/Sound/mixkit-forest-birds-singing-1212.wav');
+let run= new Audio('assets/Sound/mixkit-running forest.wav');
+let sound_Jump= new Audio('assets/Sound/mixkit-player-jumping-in-a-video-game-2043.wav');
 let sound_fail= new Audio('assets/Sound/fail-game.mp3');
 
 // document.getElementById('play-button').addEventListener('click', function() {
@@ -50,6 +54,7 @@ function idleAnimationStart() {
 
 function runAnimation() {
     sound_background.play();
+    run.play();
     boy.src="assets/images/Boy/Run (" + runImageNumber + ").png";
 
     runImageNumber=runImageNumber+1;
@@ -105,6 +110,8 @@ function moveBackground(){
 
     score = score + 1;
     document.getElementById("score").innerHTML= score;
+
+
 }
 
 
@@ -114,6 +121,7 @@ function moveBackground(){
 function jumpAnimation() {
 
     sound_Jump.play();
+    run.pause();
 
     boy.src="assets/images/Boy/jump (" + jumpImageNumber + ").png";
     jumpImageNumber=jumpImageNumber+1;
@@ -146,6 +154,9 @@ function jumpAnimationStart() {
     runImageNumber=0;
     clearInterval(runAnimationNumber);
     jumpAnimationNumber=setInterval(jumpAnimation,100);
+
+
+    increaseScore(1);
 }
 
 // add barrier
@@ -187,7 +198,7 @@ function trapAnimation() {
     for (let i = 0; i < 200; i++) {
         trap = document.getElementById("trap"+i);
         currentMarginLeft=getComputedStyle(trap).marginLeft;
-        newMarginLeft = parseInt(currentMarginLeft)-80;
+        newMarginLeft = parseInt(currentMarginLeft)-60;
         trap.style.marginLeft=newMarginLeft + "px";
 
 
@@ -207,8 +218,13 @@ function trapAnimation() {
                 clearInterval(moveBackgroundAnimationId);
                 moveBackgroundAnimationId=-1;
 
+                sound_background.pause();
+                run.pause();
 
-                deadAnimationNumber = setInterval(boyDeathAnimation, 100)
+
+                deadAnimationNumber = setInterval(boyDeathAnimation, 100);
+
+                increaseScore(-1);
             }
         }
     }
@@ -225,6 +241,8 @@ function boyDeathAnimation() {
 //ens page view & Score
         document.getElementById("end").style.visibility= "visible";
         document.getElementById("endScore").innerHTML= score;
+
+
     }
 
     boy.src= "assets/images/Boy/Dead (" + deathImageNumber + ").png"
@@ -237,6 +255,33 @@ function reload() {
     location.reload();
 }
 
+//Levels
+
+
+function update() {
+    // ... Your other update logic here ...
+
+    if (score >= 500) {
+        level = 4;
+
+    } else if (score >= 300) {
+        level = 3;
+    } else if (score >= 150) {
+        level = 2;
+    } else if (score < 150){
+        level = 1;
+    }
+
+    // Display the current level
+    // document.getElementById("level").innerHTML = "Level " + level;
+    document.getElementById("level").innerText = "Level: " + level;
+}
+
+// Whenever the score increases, call the update function
+function increaseScore(value) {
+    score += value;
+    update();
+}
 
 
 
