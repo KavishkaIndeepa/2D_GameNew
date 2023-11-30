@@ -5,7 +5,7 @@
 
 
 .background{
-    background-image: url("images/backgroundOne.png");
+    background-image: url("images/vecteezy_waterfall-game-background_24098100.jpg");
     height: 100vh;
     width: 100vw;
     overflow-x: hidden;
@@ -38,7 +38,7 @@
     margin-left: 30px;
     margin-top: 20px;
     position: absolute;
-    color: white;
+    color: #0e0e0e;
 }
 
 .end{
@@ -46,7 +46,7 @@
     height: 100vh;
     position: absolute;
     /*background-image: linear-gradient(90deg, #8E0E00 0%,#1F1C18 100%);*/
-    background-image: url("images/backgroundOne.png");
+    background-image: url("images/04.jpg");
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -80,10 +80,13 @@
 #level{
     font-size: 50px;
     font-weight: bold;
+    font-family: Rockwell;
     margin-left: 50vw;
     margin-top: 20px;
     position: absolute;
-    color: white;
+    color: #ffffff;
 }
+
+
 
 
